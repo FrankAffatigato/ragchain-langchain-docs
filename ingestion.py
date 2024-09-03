@@ -4,13 +4,13 @@ from langchain_community.document_loaders import ReadTheDocsLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
 
-
-embeddings = OpenAIEmbeddings(model="text-embeddings-3-small")
+load_dotenv()
+embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
 #For chunking, you sum up the total number of tokens beings taken in by the LLM as input and the number of tokens that the LLM is outputting
 
 def ingest_docs():
-    loader = ReadTheDocsLoader(r"C:\Users\ifran\OneDrive\Desktop\Dev\GenAI\Udemy LangChain GenAI Course\ragchain-langchain-docs\langchain-docs\api.python.langchain.com\en\latest")
+    loader = ReadTheDocsLoader(r"\\?\C:\Users\ifran\OneDrive\Desktop\Dev\GenAI\Udemy LangChain GenAI Course\ragchain-langchain-docs\langchain-docs\api.python.langchain.com\en\latest", encoding='utf-8')
     raw_documents = loader.load()
     print(f"loaded{raw_documents} documents")
 
